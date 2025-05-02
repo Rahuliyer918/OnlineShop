@@ -11,7 +11,7 @@
                 <div class="breadcrumb_content">
                     <ul>
                         <li><a href="/">home</a></li>
-                        <li>shop</li>
+                        <li><a href="/products">shop</a></li>
                     </ul>
                 </div>
                 <!--breadcrumbs area end-->
@@ -42,17 +42,17 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-6 ">
                             <div class="single_product">
                                 <div class="product_thumb">
-                                    <a href="product-details.html">
+                                    <a href="/products/ProductDetails/@item.Id">
                                         <img class="primary_img" src="/images/products/@item.ImageName" alt="@item.ImageName">
                                     </a>
                                     @if (item.Discount != null && item.Discount > 0 && item.Price > 0)
                                     {
                                         <div class="product_label">
                                             @{
-                                                decimal? discout_percentage;
-                                                discout_percentage = (item.Discount.GetValueOrDefault(0) / item.Price.GetValueOrDefault(0)) * 100;
+                                                decimal? discount_percentage;
+                                                discount_percentage = (item.Discount.GetValueOrDefault(0) / item.Price.GetValueOrDefault(0)) * 100;
                                             }
-                                            <span>-@discout_percentage.GetValueOrDefault(0).ToString("F0")%</span>
+                                            <span>-@discount_percentage.GetValueOrDefault(0).ToString("F0")%</span>
                                         </div>
                                     }
                                 </div>
